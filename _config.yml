@@ -1,10 +1,7 @@
-title: FORENSICS
-description: Beginner Guide to crack FORENSICS
-
 theme: jekyll-theme-hacker
-author:
-    name: "error-200"
-    email: "someone@somewebsite.somedomain"
-    url: "https://noob-atbash.github.io/"
+title: FORENSICS
+description: A GUIDE HOW TO DEAL WITH FORENSICS PROBLEM :)
+google_analytics: "UA-165331524-1"
+markdown: kramdown
 
-    baseurl: "/forensics"
+  

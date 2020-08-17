@@ -1,11 +1,14 @@
 ---
 layout: default
 ---
+
 ## Resources
 - [Tools](https://ericzimmerman.github.io/#!index.md)
 - [windows-forensic-analysis](http://what-when-how.com/windows-forensic-analysis/)
 
 ## TOOLS 
+
+>Don't forget to checkout the ```strings``` 
 
 ### 1. Volatility 
 >The Volatility Framework is a completely open collection of tools,
