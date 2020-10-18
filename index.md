@@ -85,6 +85,7 @@ $ $ volatility -f cridex.vmem --profile=WinXPSP2x86 connscan # to check  running
 - [sh*tty ransomware](https://aresx.carrd.co/#ransom)
 
 
+---
 
 ### 2.RegRipper 
 
@@ -92,6 +93,8 @@ $ $ volatility -f cridex.vmem --profile=WinXPSP2x86 connscan # to check  running
 
 [Installation](https://raw.githubusercontent.com/siftgrab/siftgrab/master/regripper.conf/RegRipper30-apt-git-Install.sh)
 
+
+---
 
 ### 3.Prefetch.py / PECmd
 
@@ -113,5 +116,5 @@ python3 prefetch.py -f filename.EXE filename.pf
 
 ### WRITEUPS TO START WITH 
 
-[Prefetch Perfection](https://ctftime.org/task/13433)
-[Prefetch Perfection 2](https://ctftime.org/task/13434)
+- [Prefetch Perfection](https://ctftime.org/task/13433)
+- [Prefetch Perfection 2](https://ctftime.org/task/13434)
