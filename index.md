@@ -24,21 +24,61 @@ this exciting area of research
 
 ```bash
 apt-get install volatility
+
 ```
 
 - [command-refrence](https://github.com/volatilityfoundation/volatility/wiki/Command-Reference)
 
 **Detecting the OS:**
+
 ```
 $ volatility -f filename  imageinfo 
+
 ```
-**Listing all the running process:**
+
+```bash
+Volatility Foundation Volatility Framework 2.6
+INFO    : volatility.debug    : Determining profile based on KDBG search...
+          Suggested Profile(s) : Win7SP1x64 , WinXPSP3x86 (Instantiated with Win7SP1x64 )
+                     AS Layer1 : IA32PagedMemoryPae (Kernel AS)
+                     AS Layer2 : FileAddressSpace (/home/panardin/Challs/cridex.vmem)
+                      PAE type : PAE
+                           DTB : 0x2fe000L
+                          KDBG : 0x80545ae0L
+          Number of Processors : 1
+     Image Type (Service Pack) : 3
+                KPCR for CPU 0 : 0xffdff000L
+             KUSER_SHARED_DATA : 0xffdf0000L
+           Image date and time : 2012-07-22 02:45:08 UTC+0000
+     Image local date and time : 2012-07-21 22:45:08 -0400
+
 ```
-$ volatility -f filename --profile=Win7SP1x64 pstree
+>Once we have the computer OS from which this memory dump comes from (Win7SP1x64). The investigation can now begin, we can specify to volatility the OS profile (--profile=Win7SP1x64)
+
+
+**CHEATSHEETS**
+
+```bash
+$ volatility -f filename --profile=Win7SP1x64 pslist #see running processes using the pslist plugin
+$ volatility -f filename --profile=Win7SP1x64 pstree  # to display the processes and their parent processes
+$ volatility -f foren.raw --profile=WinXPSP2x86 psxview # psxview will list processes that are trying to hide themselves while running on the computer, this plugin can be really useful
+
 ```
+
+```bash
+$ volatility -f foren.raw  --profile=Win7SP0x64  hivelist  #to see the available hivelist
+$ volatility -f foren.raw --profile=Win7SP1x64 hashdump #all poosible pass hashes 
+$ volatility -f cridex.vmem --profile=WinXPSP2x86 cmdline #to look at the last commands ran, by using cmdscan, consoles and cmdline 
+$ volatility -f mem.raw --profile=Win10x64_15063 procdump -D . -p 5448 #dump files using pid 
+$ volatility -f foren.raw  --profile=Win7SP0x64  memdump -p 1044 --dump-dir=dirname #dump files using pid 
+$ $ volatility -f cridex.vmem --profile=WinXPSP2x86 connscan # to check  running sockets and open connections on the computer
+
+```
+>Don't forget to use the combination of **strings** and **grep**.  
+
 > One way we can analyze .exe file is by runing them in [Virustotal](https://www.virustotal.com/gui/home/upload).
 
-### WRITEUPS
+### WRITEUPS TO START WITH 
 
 - [LOGarithm](https://github.com/5h3r10ck/CTF_Writeups/tree/master/InCTF)
 - [Investigation](https://blog.bi0s.in/2020/08/04/Forensics/Investigation-InCTFi2020/)
